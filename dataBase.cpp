@@ -1,14 +1,16 @@
 /*============================================================
 Name        : dataBase.cpp
 Author      : marci98p
-Version     : 1.1.0
+Version     : 1.1.1
+Last edit:  : 15.01.2025
 Copyright   : 
 Description : C++ nodes
 =============================================================*/
 // ________________________________________________________________________________________________
 // ##### Data types ###############################################################################
 Data Type               Size (in bytes)     Range
-char                    1                   0
+signed char             1                   -128            to 127
+unsigned char           1                   0               to 255
 short int               2                   -32,768         to 32,767
 unsigned short int      2                   0               to 65,535
 unsigned int            4                   0               to 4,294,967,295
@@ -17,8 +19,6 @@ long int                4                   -2,147,483,648  to 2,147,483,647
 unsigned long int       4                   0               to 4,294,967,295
 long long int           8                   -(2^63)         to (2^63)-1
 unsigned long long int  8                   0               to 18,446,744,073,709,551,615
-signed char             1                   -128            to 127
-unsigned char           1                   0               to 255
 float                   4                   In general, 7 decimal digits precision
 double                  8                   In general, 15 decimal digits precision
 long double             12
@@ -141,8 +141,8 @@ void function(int & ref_y);   // same
 void function(int&ref_y);     // same
 // useage
 void function(int& ref_y){
-  cout << y;        // value not mamory adress
-  cout << &y;       // 0x7ffcb0935854  
+  cout << ref_y;        // value not mamory adress
+  cout << &ref_y;       // 0x7ffcb0935854  
 }
 
 // arrays as argument
@@ -159,21 +159,21 @@ void function(int array[], int arraySize){    // arrays are always given by refe
 // The value of a pointer is the memory location of the referenced variable
 // pointers can be declared to point to objects of any data type
 
-int y = 42;			// variable declaration
-int* y_ptr;			// pointer declaration
-int *y_ptr;			// pointer declaration - same
+int y = 42;			  // variable declaration
+int* y_ptr;			  // pointer declaration
+int *y_ptr;			  // pointer declaration - same
 int* y_ptr = &y;	// shorter
-y_ptr = &y; 		// referencing - assign address of variable to ptr
+y_ptr = &y; 		  // referencing - assign address of variable to ptr
 cout << *y_ptr		// 42 - dereferencing pointer (get value of variable)
-cout << y_ptr		// 0xffffcbdc - (get adress of variable)
+cout << y_ptr		  // 0xffffcbdc - (get adress of variable)
 cout << &y_ptr		// 0xffffcbd0 - (get adress of ptr)
 
 // Pointer Arithmetic
 char v[5] = {a,b,c,d,e};
 char *v_ptr = &v[0];
 
-cout << *v_ptr 		// ouputs 'a'
-cout << *v_ptr +2	// ouputs 'c' - Increasing the pointer by + 1 increases the memory address by 2 = sizeof(char)
+cout << *v_ptr 		  // ouputs 'a'
+cout << *v_ptr +2	  // ouputs 'c' - Increasing the pointer by + 1 increases the memory address by 2 = sizeof(char)
 
 // Pointer and Arrays
 // an array name (b) can be thought of as a constant pointer
@@ -271,24 +271,24 @@ cout << literal;    // OUTPUT: This is a literal
 
 #include<vector>
 
-std:: vector<type> vec;				// declares a vector as empty vector
-std:: vector<type> vec (n);			// declares a vector with n elements
+std:: vector<type> vec;				    // declares a vector as empty vector
+std:: vector<type> vec (n);			  // declares a vector with n elements
 std:: vector<type> vec (n, val);	// all n elements initialized with val
 
-vec[n]; 							// get value of vector with index n
+vec[n]; 							  // get value of vector with index n
 vec.at(n);							// vec[n] but with range check
-vec = vector2;						// copy vector
+vec = vector2;					// copy vector
 vec.size();							// get array size
-vec.capacity();						// get number of elements of vec pondon:"sizeof();"
-vec.reserved();						// reserves minimum amount of mememory for n elements
-vec.push_back(val);					// adds val to end of vec
-vec.pop_back();						// removes last element of vec
+vec.capacity();					// get number of elements of vec pondon:"sizeof();"
+vec.reserved();					// reserves minimum amount of mememory for n elements
+vec.push_back(val);			// adds val to end of vec
+vec.pop_back();					// removes last element of vec
 vec.front();						// get first value of vec
 vec.back();							// get last value of vec
 vec.begin();						// get interator to first element (similar to pointer)
 vec.end();							// get interator to last element (similar to pointer)
 vec.erase(n);						// removes element n from vec
-vec.insert(n, val);					// insert element with val
+vec.insert(n, val);			// insert element with val
 vec.clear();						// removes all element of vec
 
 // ________________________________________________________________________________________________
