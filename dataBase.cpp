@@ -94,7 +94,6 @@ using namespace std;
 cout << endl << "\n";
 cout << "\t";
 cout << std::left           // changes to left aligned
-cout << 
 
 // sticky stream operators
 std::cout << std::hex << num;
@@ -275,21 +274,21 @@ std:: vector<type> vec;				    // declares a vector as empty vector
 std:: vector<type> vec (n);			  // declares a vector with n elements
 std:: vector<type> vec (n, val);	// all n elements initialized with val
 
-vec[n]; 							  // get value of vector with index n
-vec.at(n);							// vec[n] but with range check
-vec = vector2;					// copy vector
-vec.size();							// get array size
-vec.capacity();					// get number of elements of vec pondon:"sizeof();"
-vec.reserved();					// reserves minimum amount of mememory for n elements
-vec.push_back(val);			// adds val to end of vec
-vec.pop_back();					// removes last element of vec
-vec.front();						// get first value of vec
-vec.back();							// get last value of vec
-vec.begin();						// get interator to first element (similar to pointer)
-vec.end();							// get interator to last element (similar to pointer)
-vec.erase(n);						// removes element n from vec
-vec.insert(n, val);			// insert element with val
-vec.clear();						// removes all element of vec
+vec[n];                  // get value of vector with index n
+vec.at(n);               // vec[n] but with range check
+vec = vector2;           // copy vector
+vec.size();              // get array size
+vec.capacity();          // get number of elements of vec pondon:"sizeof();"
+vec.reserved();          // reserves minimum amount of mememory for n elements
+vec.push_back(val);      // adds val to end of vec
+vec.pop_back();          // removes last element of vec
+vec.front();             // get first value of vec
+vec.back();              // get last value of vec
+vec.begin();             // get interator to first element (similar to pointer)
+vec.end();               // get interator to last element (similar to pointer)
+vec.erase(n);            // removes element n from vec
+vec.insert(n, val);      // insert element with val
+vec.clear();             // removes all element of vec
 
 // ________________________________________________________________________________________________
 // ##### Functions ################################################################################
