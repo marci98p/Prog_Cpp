@@ -1,6 +1,14 @@
+/*============================================================
+Name        : dataBase.cpp
+Author      : marci98p
+Version     : 1.1.0
+Copyright   : 
+Description : C++ nodes
+=============================================================*/
 // ________________________________________________________________________________________________
 // ##### Data types ###############################################################################
 Data Type               Size (in bytes)     Range
+char                    1                   0
 short int               2                   -32,768         to 32,767
 unsigned short int      2                   0               to 65,535
 unsigned int            4                   0               to 4,294,967,295
@@ -16,11 +24,32 @@ double                  8                   In general, 15 decimal digits precis
 long double             12
 wchar_t                 2 or 4              1 wide character
 
-sizeof(int)   =4
-sizeof(long)  =8
+sizeof(int)   = 4
+sizeof(long)  = 8
 
+// static, const and extern variables
+static int value = 7;      // this global declared variable ist only known in the exact same file (like private)
+
+void function(){
+  static int remain = 5;   // static flag in functions case a local variable to remain it's value even if the function is done (lifetime: program run time)
+}
+
+const int valueB = 3;      // const values can't be changed
+extern int notHere;        // external declared variables can be used but are not declared inside that file
 // ________________________________________________________________________________________________
 // ##### casting ##################################################################################
+// C style
+int a_int = 1;
+double a_double = a_int;       // implicit casting - argument promotion (no info gets lost)
+
+double b_double = 5.3;
+int b_int = b_double;          // also implicit casting - argument coercion (info - dec digits - gets lost)
+int b_int = (int)b_double      // explicit conversion / explicit casting - argument coercion
+
+// C++ style
+int c_int = 10;
+double c_double = static_cast<int>(c_int)  // benefit: you can search for cast in code
+// more cast mathods available 
 
 // Pointer casting 
 int* int_ptr= nullptr;
@@ -33,6 +62,7 @@ void_ptr = int_ptr;             // allowed
 // ________________________________________________________________________________________________
 // ##### cin ######################################################################################
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 cin >> input;
@@ -43,6 +73,17 @@ cin >> setw(size) >> input      // max input lengh = size-1
 
 // more: https://www.geeksforgeeks.org/cin-in-c/
 
+// check cin for right type 
+cout << "Enter only numbers: ";
+int input;
+while (true) {
+  cin >> setw(10) >> input;
+  if (!cin){                    // type check (int) becaus input is type int
+    cin.clear();
+    cin.ignore(10000,'\n');     // otherwise causing another failure
+    break;                      // Error case - breaking the while loop
+    }
+}
 
 // ________________________________________________________________________________________________
 // ##### cout: stream operators ###################################################################
@@ -68,14 +109,50 @@ std::cout << std::setw(width) << outputWithWidth;
 // more: https://en.cppreference.com/w/cpp/io/manip
 
 // ________________________________________________________________________________________________
+// ##### Arrays ###################################################################################
+int n[];
+int n[arraySize];
+int n[] = {0,1,2,3,4,5 };
+int n[10] = {0,1,2,3,4,5};
+
+int arraySize = sizeof(array) / sizeof(usedArrayType);   // to get the size of array => devide by sizeof( used array type);
+
+int arrayA = {0,1,2,3,4,5};
+int arrayB = arrayA;    // !!! C-arrays cannot be assigned and cannot be used to init
+// ________________________________________________________________________________________________
 // ##### Reference ################################################################################
 // Only in C++
+int x = 3;
+int &x_ref;         // !!! not allowed - reference needs to be initializied
+int &x_ref = x;     // creates and initializieses reference with adress of variable
+int& x_ref = x;     // same
 
-int x;
-int &ref_x;         // !!! not allowed - reference needs to be initializied
-int &ref_x = x;     // creates and initializieses reference with adress of variable
-int& ref_x = x;     // same
+// example
+cout << "x = " << x << endl;        // x = 3
+cout << "x_ref= "<< x_ref<< endl;   // x_ref = 3
+x_ref= 7; 
+cout << "x = " << x << endl;        // x = 7
+cout << "x_ref= "<< x_ref<< endl;   // x_ref = 7
 
+// function - call by reference (fuction declaration)
+void function(int &ref_y);
+void function(int& ref_y);    // same
+void function(int & ref_y);   // same
+void function(int&ref_y);     // same
+// useage
+void function(int& ref_y){
+  cout << y;        // value not mamory adress
+  cout << &y;       // 0x7ffcb0935854  
+}
+
+// arrays as argument
+void function(int array[], int arraySize){    // arrays are always given by reference not by value
+  int size = sizeof(array[])                  // !!! does not work for arrays as argument in functions => allways return 8
+  cout << array;                              // returns mamory adress
+
+  for (int i = 0; i < arraySize; i++){}       // need to have a second parameter int arraySize
+    cout << array[i];                         // returns value at index i
+}
 
 // ________________________________________________________________________________________________
 // ##### Pointer ##################################################################################
@@ -248,3 +325,11 @@ int main(int argc, char **argv){
     cout << argv[2];        // "5" => arg number as C-string - needs to be converted => see C-strings
     cout << argv[argc-1];   // last arg
 }
+// ________________________________________________________________________________________________
+// ##### random seed rand srand ###################################################################
+#include <cstdlib>          // contains srand and rand
+#include <ctime>
+std::srand(std::time(0)));  // set current time as seed
+using namespace std;
+cout << rand() % 6;         // random ints form 0 to 5
+cout << rand() % 6 + 1;     // random ints form 1 to 6 - dice
