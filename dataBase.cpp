@@ -87,6 +87,12 @@ while (true) {
     }
 }
 
+// read input - another example - with ptr
+do {
+  // as long as cin OK and i not bigger than max_i
+  cout << "*(a_ptr + "<< *i <<"): ";
+} while (cin >> a[(*i)++] && (*i) <= max_i);    // breaks out when cin failed or index reached
+
 // ________________________________________________________________________________________________
 // ##### cout: stream operators ###################################################################
 #include <iostream>
@@ -184,33 +190,35 @@ int b[5] =  {5,6,7,8,9}
 int* b_ptr;
 b_ptr = b;      // assign adress of array to ptr (=> b (without subscribt) is a (constant) pointer to the first elememt of the array b)
 b_ptr = &b[0];  // same
+*b_ptr = 4;     // write value of ptr-adress
 
 cout << &b[3];          // access adress (e.g. 0xffffcbdc) of array element index 3
 cout << b_ptr +3;       // same (e.g. 0xffffcbdc)
 cout << b[3];           // access array element
 cout << b_ptr[3];       // same - access value of array element
 cout << *(b_ptr +3);    // same - () must be used because of precedence
+cout << (*b_ptr)++      // increase value behind ptr
 
 // Examples (console output):
 Print b: c-array == ptr => without subscribt [], its the adress of the array
 b     = 0x7ffd871870c0
 b_ptr = 0x7ffd871870c0
 
-Array subsript notation:
-b[0] = 5
-b[1] = 6
+console: Array subsript notation:
+console: b[0] = 5
+console: b[1] = 6
 
-Pointer subsript notation:
-b_ptr[0] = 5
-b_ptr[1] = 6
+console: Pointer subsript notation:
+console: b_ptr[0] = 5
+console: b_ptr[1] = 6
 
-Array name offset notation:
-*(b + 0) = 5
-*(b + 1) = 6
+console: Array name offset notation:
+console: *(b + 0) = 5
+console: *(b + 1) = 6
 
-Pointer offset notation:
-*(b_ptr + 0) = 5
-*(b_ptr + 1) = 6
+console: Pointer offset notation:
+console: *(b_ptr + 0) = 5
+console: *(b_ptr + 1) = 6
 
 // const with pointers
 char* c_ptr1 = nullptr;             // nonconstant ptr to nonconstant data
