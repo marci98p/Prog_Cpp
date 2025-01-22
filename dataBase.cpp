@@ -297,8 +297,8 @@ vec.front();             // get first value of vec
 vec.back();              // get last value of vec
 vec.begin();             // get interator to first element (similar to pointer)
 vec.end();               // get interator to last element (similar to pointer)
-vec.erase(n);            // removes element n from vec
-vec.insert(n, val);      // insert element with val
+vec.erase(n);            // removes element with iterator n from vec
+vec.insert(n, val);      // insert element with val at iterator n
 vec.clear();             // removes all element of vec
 
 // ________________________________________________________________________________________________
@@ -343,3 +343,21 @@ std::srand(std::time(0)));  // set current time as seed
 using namespace std;
 cout << rand() % 6;         // random ints form 0 to 5
 cout << rand() % 6 + 1;     // random ints form 1 to 6 - dice
+
+// ________________________________________________________________________________________________
+// ##### useful functions #########################################################################
+// swap ints
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+// sort int array
+void bubbleSort(int arr[], int size) {
+    int i, ii;
+    for (i = 0; i < size-1; i++)
+        for (ii = 0; ii < size-i-1; ii++)
+            if (arr[ii] > arr[ii+1])
+                swap(&arr[ii], &arr[ii+1]);
+}
