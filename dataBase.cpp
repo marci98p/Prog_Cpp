@@ -175,6 +175,7 @@ y_ptr = &y; 		  // referencing - assign address of variable to ptr
 cout << *y_ptr		// 42 - dereferencing pointer (get value of variable)
 cout << y_ptr		  // 0xffffcbdc - (get adress of variable)
 cout << &y_ptr		// 0xffffcbd0 - (get adress of ptr)
+*y_ptr = 4;       // write value of ptr-adress
 
 // Pointer Arithmetic
 char v[5] = {a,b,c,d,e};
@@ -201,9 +202,9 @@ cout << *(b_ptr +3);    // same - () must be used because of precedence
 cout << (*b_ptr)++      // increase value behind ptr
 
 // Examples (console output):
-Print b: c-array == ptr => without subscribt [], its the adress of the array
-b     = 0x7ffd871870c0
-b_ptr = 0x7ffd871870c0
+console: Print b: c-array == ptr => without subscribt [], its the adress of the array
+console: b     = 0x7ffd871870c0
+console: b_ptr = 0x7ffd871870c0
 
 console: Array subsript notation:
 console: b[0] = 5
