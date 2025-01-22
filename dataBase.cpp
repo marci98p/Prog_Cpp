@@ -108,12 +108,13 @@ std::cout << std::hex << num;
 std::cout << std::oct << num;
 std::cout << std::dec << num;
 std::cout << std::fixed << num;
-std::cout << std::setPrecision(digits);
-
+std::cout << std::setprecision(digits);
 // non-sticky stream operators (= only relates on the next output)
 std::cout << std::setw(width) << outputWithWidth;
-
 // more: https://en.cppreference.com/w/cpp/io/manip
+
+// example to output a string by comparring with ints
+cout << ((i % 8 > 0) ? "-" : to_string(i / 8))
 
 // ________________________________________________________________________________________________
 // ##### Arrays ###################################################################################
