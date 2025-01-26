@@ -112,6 +112,7 @@ std::cout << std::setprecision(digits);
 // non-sticky stream operators (= only relates on the next output)
 std::cout << std::setw(width) << outputWithWidth;
 std::cout << std::left
+std::cout << std::right
 // more: https://en.cppreference.com/w/cpp/io/manip
 
 // example to output a string by comparring with ints
@@ -277,6 +278,16 @@ std::strcmp(argv[2],str)    // compares two strings
 // String literals / string constant
 const char *literal = "This is a literal";
 cout << literal;    // OUTPUT: This is a literal
+
+// loop through C-string
+void loopC_string(const char* text) {
+    int length = 0;
+    while(*(text+length)!='\0'){
+        length++;
+    }
+    for(int i=0; i<(length); i++){
+        cout << text[i];        // prints all chars but doesnt go beyond \n
+    }
 
 // ________________________________________________________________________________________________
 // ##### Vectors ##################################################################################
