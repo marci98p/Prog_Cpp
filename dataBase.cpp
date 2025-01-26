@@ -378,3 +378,16 @@ void bubbleSort(int arr[], int size) {
             if (arr[ii] > arr[ii+1])
                 swap(&arr[ii], &arr[ii+1]);
 }
+
+
+
+Recursion 
+8.2 - Musterlösung
+5.3
+
+Pointer
+8.1
+ÜK 1 - Task 3
+
+Vector
+ÜK 1 - Task 3
