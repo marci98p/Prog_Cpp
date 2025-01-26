@@ -111,10 +111,14 @@ std::cout << std::fixed << num;
 std::cout << std::setprecision(digits);
 // non-sticky stream operators (= only relates on the next output)
 std::cout << std::setw(width) << outputWithWidth;
+std::cout << std::left
 // more: https://en.cppreference.com/w/cpp/io/manip
 
 // example to output a string by comparring with ints
 cout << ((i % 8 > 0) ? "-" : to_string(i / 8))
+
+// ASCII table
+https://alpharithms.s3.amazonaws.com/assets/img/ascii-chart/ascii-table-alpharithms-scaled.jpg
 
 // ________________________________________________________________________________________________
 // ##### Arrays ###################################################################################
@@ -253,6 +257,7 @@ for (int i = 0; i < 3; i++){
 // ________________________________________________________________________________________________
 // ##### C-Strings ################################################################################
 c-string = array of chars
+ '\0'
 char c_str[3] = {"one", "two", "three"};
 cout << c_str;      // OUTPUT: 0xffffcbec - C-string name (without) subscript == ptr adress to the first element
 cout << c_str[1];   // OUTPUT: one
@@ -340,7 +345,7 @@ int main(int argc, char **argv){
 // ##### random seed rand srand ###################################################################
 #include <cstdlib>          // contains srand and rand
 #include <ctime>
-std::srand(std::time(0)));  // set current time as seed
+std::srand(std::time(0));  // set current time as seed
 using namespace std;
 cout << rand() % 6;         // random ints form 0 to 5
 cout << rand() % 6 + 1;     // random ints form 1 to 6 - dice
