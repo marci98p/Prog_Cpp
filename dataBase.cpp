@@ -78,14 +78,11 @@ cin >> setw(size) >> input      // max input lengh = size-1
 // check cin for right type 
 cout << "Enter only numbers: ";
 int input;
-while (true) {
+do{
   cin >> setw(10) >> input;
-  if (!cin){                    // type check (int) becaus input is type int
-    cin.clear();
-    cin.ignore(10000,'\n');     // otherwise causing another failure
-    break;                      // Error case - breaking the while loop
-    }
-}
+} while (cin)
+cin.clear();
+cin.ignore(1000, '\n');
 
 // read input - another example - with ptr
 do {
