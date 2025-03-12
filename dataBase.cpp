@@ -68,11 +68,12 @@ void_ptr = int_ptr;             // allowed
 using namespace std;
 
 cin >> input;
-getline (cin, inputLine);       // get entire line
 cin >> name >> ag               // get multiple inputs separated by " "
 cin.get(input, size);           // read up to size-1 chars (-1 because last char null)
 cin >> setw(size) >> input      // max input lengh = size-1
 
+#include <string>
+getline (cin, inputLine);       // get entire line
 // more: https://www.geeksforgeeks.org/cin-in-c/
 
 // check cin for right type 
