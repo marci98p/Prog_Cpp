@@ -1,3 +1,18 @@
 import std; //
 
 // ##### classes ###############################################################################
+class Date{
+  int month;
+  int day;
+  int hour;
+  int sec;
+
+  public:
+    Date();                      // default constructor
+    Date(int hh);                // constructor
+    Date(int hh, int min);       // constructor
+
+    setDate() const;
+    
+
+  
