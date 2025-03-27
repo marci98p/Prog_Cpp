@@ -40,7 +40,7 @@ void Time::setTime(int hh, int mm, int ss){
     sec_ = ss;
 }
 Time Time::getTime() const {
-    return *this;
+    return *this;                // return dereferenced ptr
 }
 int Time::getHour() const{
     return hour_;
