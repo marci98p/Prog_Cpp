@@ -12,10 +12,10 @@ class Time{
 
   public:
     // default constructors
-    Time(){}                                                            // default constructor
+    Time();                                                             // default constructor
     Time(int hh = 0, int mm = 0, int ss = 0) {}                         // user defined default constructor
     Time() {setTime(0,0,0)}                                             // same with member function
-    Time() : hour_(0), min_(0), sec_(0) {}                              // same with init list
+    Time() : hour_(0), min_(0), sec_(0) {}                              // same with init list - tbt: init lists are able to change const member variables 
 
     // user defined constructors - declaration and definition 
     Time(int hh) : Time() { hour_ = hh; }                               // constructor delegation and init list (init lists must be used for classes inside classes)
@@ -23,7 +23,7 @@ class Time{
     Time(int hh, int mm, int ss) : hour_(hh), min_(mm), sec_(ss) {}     // constructor only  w/ init list
 
     // deconstructor (must be public)        // release amnually allocated momory, delete objects created with new, release system resources, close network connections
-    ~Time()
+    ~Time();
 
     // member function declaration
     void setTime(int hh, int mm, int ss);
