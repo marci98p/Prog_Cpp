@@ -24,7 +24,7 @@ void Lecture::setCourseName( string name ) {     // set function to always have 
    Employee(string name, double salary);
    Employee(string name, double salary, Employee *manager);      // manager is ptr
    string getName() const;
- Employee* getManager() const;
+   Employee* getManager() const;
    double getSalary() const;
  private:
    string name_;
@@ -47,3 +47,17 @@ manager)
  Employee* Employee::getManager() const{
    return manager_;
  }
+
+
+// 14.04.25 - Classes and Pointer
+cout << "Name: " << dept1Person1.getName() << endl;
+cout << "Salary: " << dept1Person1.getSalary() << endl;
+cout << "Manager: " << dept1Person1.getManager()->getName() << endl << endl;            // getName of pointer
+cout << "Name: " << dept2Person1.getName() << endl;
+cout << "Salary: " << dept2Person1.getSalary() << endl;
+cout << "Manager: " << (*dept2Person1.getManager()).getName() << endl;                  // same
+
+// safe data to heap
+Employee* departmentManager1 = new Employee("Michael Mouse", 60000, nullptr);        // wiht new
+// must be deleted after use
+delete departmentManger1;        // Caling delete on a pointer to an object runs the destructor!
