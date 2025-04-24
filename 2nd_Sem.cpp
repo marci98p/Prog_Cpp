@@ -64,6 +64,21 @@ void Time::printTime() const {
 }
 
 
+// Validating Member-data with member functions:
+Validation::Validation( string toProof ) { // default constructor      
+    setSomething(toProof);               // calls set function   
+ } 
+
+void Lecture::setSomething( string tbp ) {     // set function to always have valid member data - can be used with constructor or standalone
+   if ( tbp.size() <= 25 ) something_ = tbp;
+   if ( tbp.size() > 25 )
+   {
+      // fall back: set something_ to first 25 characters
+      something_ = tbp.substr(0,25); 
+      cerr << "Input exceeds maximum length => cut to 25 characters " << endl;
+   }
+ } 
+
 // ########################################## struct ##########################################
 // in C structs were present before classes existed
 // in C++ is a struct a class but member are public by default
