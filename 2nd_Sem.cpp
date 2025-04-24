@@ -79,6 +79,30 @@ void Lecture::setSomething( string tbp ) {     // set function to always have va
    }
  } 
 
+// Using Pointers to a Class
+ class Employee {
+ private:
+   string name_;
+   double salary_;
+   Employee *manager_;
+
+ public:
+   Employee();
+   Employee(string name, double salary, Employee *manager);      // manager is ptr
+   string getName() const;
+   Employee* getManager() const;
+   double getSalary() const;
+ };
+
+
+ Employee::Employee(): salary_(0), manager_(nullptr) {}
+ Employee::Employee(string name, double salary, Employee* manager): name_(name), salary_(salary), manager_(manager) {}
+
+ Employee* Employee::getManager() const{
+   return manager_;
+ }
+
+
 // ########################################## struct ##########################################
 // in C structs were present before classes existed
 // in C++ is a struct a class but member are public by default
