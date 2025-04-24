@@ -102,6 +102,9 @@ void Lecture::setSomething( string tbp ) {     // set function to always have va
    return manager_;
  }
 
+cout << "Manager: " << dept1Person1.getManager()->getName() << endl;            // getName of pointer
+cout << "Manager: " << (*dept1Person1.getManager()).getName() << endl;          // same
+
 
 // ########################################## struct ##########################################
 // in C structs were present before classes existed
