@@ -84,7 +84,7 @@ void Lecture::setSomething( string tbp ) {     // set function to always have va
  private:
    string name_;
    double salary_;
-   Employee *manager_;
+   Employee *manager_;        // Aggregation
 
  public:
    Employee();
