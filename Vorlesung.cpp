@@ -64,6 +64,13 @@ Calc& Calc::addValue(int value)  {
 calc.addValue(5).subValue(3).getValue()
 
 
-// friend
-  
+// ************************  friend ************************** 
+//can access public and private data of class
+ class Count {
+  friend void setX( Count& c_ref, int val ); // friend declaration
+  private:
+    int x_; // data member
+  public:
+
+ };  
 
