@@ -74,3 +74,19 @@ calc.addValue(5).subValue(3).getValue()
 
  };  
 
+void setX( Count& c_ref, int val ) {       // friendly function - standalone
+   c_ref.x_ = val; // allowed as setX is a friend of Count
+ }
+
+// friend objects - example
+ int Doctor::getCountOfPatients(string diseaseType) {
+ int number=0;
+ for (Patient* patient : patients_) { 
+if (patient->diseaseType_== diseaseType)
+ number++;
+ }
+ return number;
+ }
+ void Doctor::addPatient(Patient& patient) {
+ patients_.push_back(&patient);
+ }
