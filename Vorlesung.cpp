@@ -21,6 +21,9 @@ class Test {
 // ************************** 30.04.******************************
 
 // new & delete
+// new returns a pointer to the beginning of the new block of memory
+// If memory allocation fails, a bad_alloc exception is thrown
+allocated on success
  int main() {
    Employee* manager = new Employee("Michael Mouse", 60000, nullptr);    // allocate a new employee; new returns ptr ! therefore employee must be a ptr adress
    … 
