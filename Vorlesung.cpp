@@ -93,3 +93,11 @@ if (patient->diseaseType_== diseaseType)
  void Doctor::addPatient(Patient& patient) {
  patients_.push_back(&patient);
  }
+
+
+// ******************* build string with ostringstream **************************************
+ string Product::toString() const {
+   ostringstream buffer;
+   buffer << "Name: " << name_ << "\tQuantity: " << quantity_;
+   return buffer.str();
+ }
