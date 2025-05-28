@@ -10,7 +10,9 @@
  // C++ Syntax for Operator Overloading
  <return type> operator<op-symbol>(argument list)
 
+// *********************************************************************************************
 // example - member function vs global friend function
+// prefered way: overloading with is member functions
 class Fraction {
  friend Fraction operator+(const Fraction& f1_ref, const Fraction& f2_ref );  // as friend function
  public:
@@ -24,7 +26,7 @@ Fraction Fraction::operator-(const Fraction& f_ref) const {
   return diff;
 }
 
-// global friend function definition
+// global friend function definition - use only if member function not feasible
 Fraction operator+( const Fraction& f1_ref, const Fraction& f2_ref ) {
   Fraction sum;
   ...
@@ -32,6 +34,39 @@ Fraction operator+( const Fraction& f1_ref, const Fraction& f2_ref ) {
 }
 
 
-// ******************************** mixed types ********************************
-// use only when member function not working
-// => for cin / cout / mixed types / arg class type on right hand side
+// ******************************** mixed types **************************************************
+ Fraction a(1,2), b;
+ b = a + 2;   // this can be overloaded with a member function
+ b = 2 + a;   // this can just be overloaded with a global
+
+class Fraction  {
+  friend Fraction operator+( const int& i_ref, const Fraction& f_ref );    // class type on rhs as global friend
+  public:
+   Fraction operator+( const int& i_ref ) const;                           // class type on lhs as member func
+
+
+// stream insertion & extraction operators can only be overloaded using global non member functions
+// cin / cout / cerr / clog
+friend ostream& operator<<(ostream& out_ref, const ClassType& class_ref);
+friend istream& operator>>(istream& in_ref, ClassType& class_ref);
+
+ostream&  operator<< (ostream& out_ref,  const Fraction& f_ref) {
+  out_ref << f_ref.getNumerator() << "/" << f_ref.getDenominator();
+  return out_ref;
+}
+
+
+// ******************************** Unary Operators **************************************************
+-  !  ++  --
+// also preferred as member function
+// overloading the ++prefix increment operator
+ Fraction& Fraction::operator++() {
+   dataMember_ += step;      // += operator must be overloaded as well
+   return *this;
+ }
+// overloading the postfix-- decrement operator 
+Fraction Fraction::operator--(int) {
+   Fraction temp = *this;     // save a copy of *this before decrement
+   dataMember_ -= step;       // -= operator must be overloaded as well
+   return temp;               // return saved *this 
+}
