@@ -45,8 +45,8 @@ class Fraction  {
    Fraction operator+( const int& i_ref ) const;                           // class type on lhs as member func
 
 
-// stream insertion & extraction operators can only be overloaded using global non member functions
-// cin / cout / cerr / clog
+// ************************** stream insertion & extraction operators ********************************
+// cin / cout / cerr / clog can only be overloaded using global non member functions
 friend ostream& operator<<(ostream& out_ref, const ClassType& class_ref);
 friend istream& operator>>(istream& in_ref, ClassType& class_ref);
 
@@ -62,7 +62,6 @@ ostream&  operator<< (ostream& out_ref,  const Fraction& f_ref) {
    input_ref.ignore(1); // skip \n caused by RETURN key
    return input_ref;
  }
-
 
 // ******************************** Unary Operators **************************************************
 -  !  ++  --
