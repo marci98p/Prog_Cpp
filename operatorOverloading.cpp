@@ -55,6 +55,14 @@ ostream&  operator<< (ostream& out_ref,  const Fraction& f_ref) {
   return out_ref;
 }
 
+ istream& operator>>(istream& input_ref, Fraction& f_ref) {
+   input_ref >> f_ref.num_;
+   input_ref.ignore(1); // skip '/' 
+   input_ref >> f_ref.den_;
+   input_ref.ignore(1); // skip \n caused by RETURN key
+   return input_ref;
+ }
+
 
 // ******************************** Unary Operators **************************************************
 -  !  ++  --
