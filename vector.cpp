@@ -30,4 +30,5 @@ vec.clear();                   // removes all element of vec
 for (const auto& item : vec){
   // loop throw each item
   // be careful! use auto* to edit class member (because item is a copy instead)
+  // const to let compiler optimize
 }
