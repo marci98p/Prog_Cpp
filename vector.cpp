@@ -32,3 +32,7 @@ for ((opt. const) auto& item : vec){
   // be careful! use auto* to edit class member (because item is a copy instead)
   // const to let compiler optimize => use when only read item 
 }
+
+for (int i = 0; i < vec.size(); i++){
+  vec.at(i)    // access item
+}
