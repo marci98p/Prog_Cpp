@@ -27,8 +27,8 @@ vec.end();                     // get interator to last element (similar to poin
 vec.erase(n);                  // removes element with iterator n from vec
 vec.clear();                   // removes all element of vec
 
-for (const auto& item : vec){
+for ((opt. const) auto& item : vec){
   // loop throw each item
   // be careful! use auto* to edit class member (because item is a copy instead)
-  // const to let compiler optimize
+  // const to let compiler optimize => use when only read item 
 }
