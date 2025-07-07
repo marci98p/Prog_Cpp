@@ -1,3 +1,13 @@
+// ************************* Friends ************************* 
+friend <function prototype>;    // friend function inside a class (used for operator overloading)
+friend void setX( Count& c_ref, int val );  // Example - friend function ins not a member function
+
+friend <ClassName>;     // friend class can access private and public class elements
+friend Doctor;          // Example 
+
+
+
+// ************************* Operator Overloading ************************* 
 // operators that can be overloaded
 +  -  *  /  %  ^  &  |  ~  !  =  <  >
 +=  -=  *=  /=  %=  ^=  &= |=  <<  >>  <<=  >>=  ==  !=  <=  >=
