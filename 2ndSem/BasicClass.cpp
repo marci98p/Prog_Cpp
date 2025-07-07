@@ -4,13 +4,16 @@
 
 class Time{
   int hour_;
-  int min_;
+  const int min_;    // can not be modified once initilized
 
   public:
-    Time();                                                    // default constructor
-    Time(int hh = 0, int mm = 0) {}                            // user defined default constructor
+    Time(int hh = 0, int mm = 0) {}                            // parametized constructor
+        // implicitly creates signitures:
+        Time();                                                // default constructor
+        Time(int hh);
+        Time(int hh, int mm);
     Time() {setTime(0,0)}                                      // same with member function
-    Time() : hour_(0), min_(0) {}                              // init list - tbt: init lists are able to change const member variables 
+    Time() : hour_(0), min_(0) {}                              // init list - prefered because no default const is used
 
     // user defined constructors - declaration and definition 
     Time(int hh) : Time() { hour_ = hh; }                       // constructor delegation and init list (init lists must be used for classes inside classes)
