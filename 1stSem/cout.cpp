@@ -13,6 +13,7 @@ std::cout << std::oct << num;
 std::cout << std::dec << num;
 std::cout << std::fixed << num;
 std::cout << std::setprecision(digits);
+
 // non-sticky stream operators (= only relates on the next output)
 std::cout << std::setw(width) << outputWithWidth;
 std::cout << std::left
