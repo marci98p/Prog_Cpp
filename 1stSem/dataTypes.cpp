@@ -27,6 +27,19 @@ void function(){
 
 const int valueB = 3;      // const values can't be changed
 extern int notHere;        // external declared variables can be used but are not declared inside that file
+
+// ________________________________________________________________________________________________
+// ##### Arrays ###################################################################################
+int n[];
+int n[arraySize];
+int n[] = {0,1,2,3,4,5 };
+int n[10] = {0,1,2,3,4,5};
+
+int arraySize = sizeof(array) / sizeof(usedArrayType);   // to get the size of array => devide by sizeof( used array type);
+
+int arrayA = {0,1,2,3,4,5};
+int arrayB = arrayA;    // !!! C-arrays cannot be assigned and cannot be used to init
+
 // ________________________________________________________________________________________________
 // ##### casting ##################################################################################
 // C style
