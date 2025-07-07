@@ -84,6 +84,14 @@ for (Animal* animal : animals) {
    if (cat!=nullptr) cat->purr();
  }
 
+// typeid
+for (Animal* animal : animals) {
+    if (typeid(*animal)==typeid(Dog)) {                        // check for typeid == Dog
+      cout << "Type is " << typeid(*animal).name()<<endl;      // cout typeid.name() ➜ "Type is 3Dog"
+      dynamic_cast<Dog*>(animal)->wag();
+    }
+}
+
 // static cast
 // ➜ happens at compile time
 // ➜ checks if typecast is possible
