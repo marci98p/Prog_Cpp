@@ -30,10 +30,7 @@ class Time{
 #include "time.h"
 #include <iostream>
 #include <iomanip>
-using std::cout;
-using std::endl;
-using std::setw;
-using std::setfill;
+using namespace std;
 
 // member functions
 void Time::setTime(int hh, int mm){
