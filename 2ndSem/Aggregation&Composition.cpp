@@ -26,10 +26,9 @@ class Employee {
 };
 
 
-// Example Aggregation 
+// ************************* Example Aggregation *************************  
 class Customer {
-    const string firstName_;
-    const string lastName_;
+    const string firstName_; const string lastName_;
   public:
     Customer(string fn, string ln) : firstName_(fn), lastName_(ln) {};
     string getName() const;
@@ -37,10 +36,10 @@ class Customer {
 
 class Bank {
     ~Bank();
-    std::vector<const Customer*> clients_;
+    std::vector<const Customer*> clients_;        // clients as a vector of multiple Customer ptr
   public:
-    void addClient(const Customer* client_ptr);
-    const Customer* getClient(int i) const;
+    void addClient(const Customer* client_ptr);   // add client as Customer ptr
+    const Customer* getClient(int i) const;       // return client as Customer ptr
 };
 void Bank::addClient(const Customer* client_ptr) {
   clients_.push_back(client_ptr);
@@ -51,7 +50,7 @@ const Customer* Bank::getClient(int i) const {
 
 
 
-// Stack and Heap
+// *************************  Stack and Heap ************************* 
 int main(){
   Employee deptManager("Hansi Baer", 6000, nullptr);      // on stack
   Employee deptWorker("Udo Bruno", 4200, &deptManager);   // on stack
@@ -60,7 +59,13 @@ int main(){
   delete heapManager;    // deallocate
 
   // dynamic mamory allocation of arrays
-  Date* date_ptr = new Date[10]; 
+  Date* date_ptr = new Date[10];
+  delete[] date_ptr;    // deallocate ptr arrays
+
   Date** date_ptr = new Date*[10];
+  for (int i = 0; i < 10; ++i) {
+    delete date_ptr[i];       // deallocate each ptr ptr
+  }
+  delete[] date_ptr;          // deallocate ptr list
  …
 };
