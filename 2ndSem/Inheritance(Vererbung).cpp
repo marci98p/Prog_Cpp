@@ -41,3 +41,42 @@ class SavingsAccount : public BankAccount {
    balance += interest_rate_ * balance;
    BankAccount::setBalance(balance);
  }
+
+
+
+// *************************************** Multiple Inheritance ***************************************
+//      A      // parent class Person
+//   B     C   // child classes Faculty and Student
+//      D      // grandchild classe TA
+
+class Person {   // parent class
+  public:
+    Person(int x)  { cout << "Person::Person(int ) called" << endl;   }
+    Person()     { cout << "Person::Person() called" << endl;   }
+ };
+
+// child class B
+class Faculty : virtual public Person {      // virtual ensures, that TA inherits only once from Person
+  public:
+    Faculty(int x): Person(x)   { cout << "Faculty::Faculty(int ) called" << endl; }
+ };
+
+// child class C
+class Student : virtual public Person {      // virtual ensures, that TA inherits only once from Person
+  public:
+    Student(int x): Person(x) { cout << "Student::Student(int ) called" << endl; }
+ };
+
+class TA : public Faculty, public Student  {   // grandchild class D
+  public:
+    TA(int x): Student(x), Faculty(x)   { cout << "TA::TA(int ) called" << endl; }
+ };
+
+ int main()  {
+    TA David(30);
+ }
+// OUTPUT:
+// Person::Person(int ) called
+// Faculty::Faculty(int ) called
+//  Student::Student(int ) called
+//  TA::TA(int ) called
