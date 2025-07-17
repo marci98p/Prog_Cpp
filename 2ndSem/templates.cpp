@@ -4,8 +4,8 @@
 // - Class Templates
 // - Variable Templates (Since C++ 14)
 template <typename A, typename B, ...> returnType FunctionTempName(type arguments) { function body }
-template <typename T> class ClassTempName { class body };
-
+template <typename T> class ClassTempName { class body };    // class template (member func defined inside class body)
+template <class T> returnType ClassName<T>::memberFunctionName(type arguments) { function body }     // member function defined outside class body
 
 // **************************************************** Function template Example  definition
 template <typename T> T myMax(T x, T y) {
@@ -61,7 +61,6 @@ int main() {
     intCoordinates.getValues();
   	charCoordinate.getValues();
 }
-
 
 
 // **************************************************** Template Variables
