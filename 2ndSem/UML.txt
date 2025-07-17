@@ -6,3 +6,5 @@
 Aggregation:   Raute, nicht ausgefüllt (Teil von)
 Komposition:   Raute, ausgefüllt (enthält Object(e))
 Pfeil:         Vererbung (Unterklasse => Oberklasse)
+
+unterstrichen: static
