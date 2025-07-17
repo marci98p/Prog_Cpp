@@ -3,11 +3,14 @@
 // - Function Templates
 // - Class Templates
 // - Variable Templates (Since C++ 14)
-template <typename A, typename B, ...> returnType FunctionTempName(type arguments) { function body }
+
 template <typename T> class ClassTempName { class body };    // class template (member func defined inside class body)
 template <class T> returnType ClassName<T>::memberFunctionName(type arguments) { function body }     // member function defined outside class body
 
-// **************************************************** Function template Example  definition
+// **************************************************** Function template
+// Syntax:
+template <typename A, typename B, ...> returnType FunctionTempName(type arguments) { function body }
+// Example:
 template <typename T> T myMax(T x, T y) {
     return (x > y) ? x : y;
 }
@@ -62,6 +65,35 @@ int main() {
   	charCoordinate.getValues();
 }
 
+
+// *************************************************** complex class template example
+// header
+template <class T> class Stack {
+private:
+	T top_;     // convention if top.symbol = 0 the stack is empty
+	Stack<T>* stackBelow_ = nullptr;
+public:
+	Stack();                            // default constructor
+	Stack(const T& firstCard);          // Constructor
+	~Stack();                           // destructor
+	Stack(const Stack<T>& original);    // copyconstructor
+
+	bool isEmpty() const;
+	void pushCard(const T& newCard);
+	T popCard();
+	void print(ostream& stream, const string& delimiter);
+};
+
+// cpp class definition
+template <class T> Stack<T>::Stack() : top_(0,0), stackBelow_(nullptr) { }                       // defauult Constructor
+template <class T> Stack<T>::Stack(const T& firstCard) : top_(firstCard), stackBelow_(nullptr){  // Constructor
+template <class T> Stack<T>::~Stack() { ... }                                                    // Destructor
+template <class T> Stack<T>::Stack(const Stack<T> &original){ ... }                              // Copyconstructor
+template <class T> void Stack<T>::pushCard(const T& newCard) { ...}                              // Member function
+
+// main
+Stack<Card> emptyStack;
+Stack<Card> completeDeck;
 
 // **************************************************** Template Variables
 template <typename T> constexpr T pi = T(3.14159);
