@@ -8,3 +8,22 @@ Komposition:   Raute, ausgefüllt (enthält Object(e))
 Pfeil:         Vererbung (Unterklasse => Oberklasse)
 
 unterstrichen: static    (gehört zur Klasse und nicht zum Objekt)    "Ohne Instanz der Klasse nutzbar"
+
+Beispiel static:
+// header
+class Worker {
+    static int unitCost_;                        // data-member as static
+    string name_;
+    
+    public:
+        Worker(string fn, string ln, int prod);
+        void print() const ; 
+        static void setUnitCost(int cost);      // member-function as static
+};
+
+// cpp
+int Worker::unitCost_ = 0;                      // !!! deklaration needed
+
+void Worker::setUnitCost(int cost){
+    unitCost_ = cost;
+}
