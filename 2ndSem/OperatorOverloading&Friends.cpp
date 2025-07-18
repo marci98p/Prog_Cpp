@@ -73,6 +73,19 @@ ostream&  operator<< (ostream& out_ref,  const Fraction& f_ref) {            // 
    return input_ref;
  }
 
+// std::print  ostream
+ostream& BMI::print(ostream &stream) {
+    for ( auto person : people_ ){
+        stream  << person.getName()
+                << " has a BMI of "
+                << calculateBMI(person)
+                << ", thats "
+                << ( hasNormalWeight(person) ? "normal weight" : "no normal weight" )      // brackets !
+                << endl;
+    }
+    return stream ;
+}
+
 // ******************************** Unary Operators **************************************************
 -  !  ++  --
 // also preferred as member function
