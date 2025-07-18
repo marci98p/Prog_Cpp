@@ -15,7 +15,6 @@ class Basse {
 
 class Child : public Base {
   int regrowthrate_;
-  
   public:
     Child(int a) : Base("Wood", a), regrowthrate_(2) {};      // reuse of constructor of Base-class
     void print();
@@ -27,7 +26,6 @@ void Child::print() {
     Base::print();                                            // reuse of Base-Member-Function
     cout << ", RegrowthRate: " << regrowthrate_;
 }
-
 bool Child::consume(int num){
     amount_ += regrowthrate_; 
     return Base::consume(num);                                // reuse of Base-Member-Function
