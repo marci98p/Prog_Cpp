@@ -2,8 +2,40 @@
 // syntax:
 class <nameOfChild> : public <nameOfParentClass>      // arg: public, private, protected - use public
 
+// ************************************* example - reuse of constructor and memberfunc *************************************
+class Basse {
+    string name_;
+    protected:         // sub-class can read
+        int amount_;
+    public:
+        Resources(string n, int am) : name_(n), amount_(a) {};
+        void print();
+        bool consume(int num);
+};
 
-// ************************************* example *************************************
+class Child : public Base {
+  int regrowthrate_;
+  
+  public:
+    Child(int a) : Base("Wood", a), regrowthrate_(2) {};      // reuse of constructor of Base-class
+    void print();
+    bool consume(int num); 
+};
+
+// cpp of Child
+void Child::print() {
+    Base::print();                                            // reuse of Base-Member-Function
+    cout << ", RegrowthRate: " << regrowthrate_;
+}
+
+bool Child::consume(int num){
+    amount_ += regrowthrate_; 
+    return Base::consume(num);                                // reuse of Base-Member-Function
+} 
+
+
+
+// ************************************* example2 *************************************
 // parent class: bankAccount      child class: savingsAccount
 class BankAccount{                // parent class
    friend ostream& operator<<(ostream& out_ref, const BankAccount& acct_ref);
