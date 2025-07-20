@@ -24,7 +24,7 @@ vec.pop_back();                // removes last element of vec
 vec.front();                   // get first value of vec
 vec.back();                    // get last value of vec
 vec.end();                     // get interator to last element (similar to pointer)
-vec.erase(vec.begin()+i);      // removes element with iterator n from vec
+vec.erase(vec.begin()+i);      // removes element (i: <int>index) 
 vec.clear();                   // removes all element of vec
 
 for (const auto item : vec){   // when read only (const so compiler optimizes)
