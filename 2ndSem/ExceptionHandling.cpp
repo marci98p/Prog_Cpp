@@ -1,3 +1,4 @@
+#include <stdexcept>
 try {}
 throw <data type>(value)
 catch (<data type> variableName)
@@ -14,6 +15,18 @@ void Date::setValues(int day, int month, in year) {
  }
 
 // Example 2 ***************************************************
+#include <iostream>
+#include <stdexcept>
+
+try {
+     throw std::invalid_argument("Something went wrong");
+}
+catch (const std::invalid_argument& errMsg) {
+      std::cout << errMsg.what() << std::endl;
+}
+
+
+// Example 3 ***************************************************
 try {
    ....
    throw string("An unexpected error occured");
@@ -22,7 +35,7 @@ try {
   cerr << errorMessage << endl;
  }
 
-// Example 3 ***************************************************
+// Example 4 ***************************************************
 int main() {
    try{
       initializeDate();
