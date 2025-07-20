@@ -85,11 +85,13 @@ public:
 };
 
 // cpp class definition
-template <class T> Stack<T>::Stack() : top_(0,0), stackBelow_(nullptr) { }                       // defauult Constructor
+template <class T> Stack<T>::Stack() : top_(0,0), stackBelow_(nullptr) { }                       // default Constructor
 template <class T> Stack<T>::Stack(const T& firstCard) : top_(firstCard), stackBelow_(nullptr){  // Constructor
-template <class T> Stack<T>::~Stack() { ... }                                                    // Destructor
-template <class T> Stack<T>::Stack(const Stack<T> &original){ ... }                              // Copyconstructor
-template <class T> void Stack<T>::pushCard(const T& newCard) { ...}                              // Member function
+template <class T> Stack<T>::~Stack() {...}                                                      // Destructor
+template <class T> Stack<T>::Stack(const Stack<T> &original){...}                                // Copyconstructor
+template <class T> void Stack<T>::pushCard(const T& newCard) {...}                               // Member function
+template <class T> void SortedTree<T>::print() const{						 // simple print member func
+template <class T> ostream& PriorityBuffer<T>::print(ostream &stream) const {...}		 // ostream print member func
 
 // main
 Stack<Card> emptyStack;
