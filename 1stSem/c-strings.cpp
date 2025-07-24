@@ -16,6 +16,9 @@ std::stoul(str)             // string to unsigned long
 std::stoll(str)             // string to long long   
 std::stoull(str)            // string to unsigned long long
 std::strcmp(argv[2],str)    // compares two strings
+std::strncpy(char* destination, const char* source, size_t num );  // Copies the first num characters of source to destination
+str.c_str();                // string to c-string
+std::strncpy(charArray, str.c_str(), n);  // copy str to const char array
 
 // String literals / string constant
 const char *literal = "This is a literal";
