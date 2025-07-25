@@ -14,7 +14,7 @@ cout << &y_ptr		// 0xffffcbd0 - (get adress of ptr)
 
 // Pointer Arithmetic
 char v[5] = {a,b,c,d,e};
-char *v_ptr = &v[0];
+char* v_ptr = &v[0];
 
 cout << *v_ptr 		  // ouputs 'a'
 cout << *v_ptr +2	  // ouputs 'c' - Increasing the pointer by + 1 increases the memory address by 2 = sizeof(char)
