@@ -14,7 +14,7 @@ cin >> setw(size) >> input      // max input lengh = size-1
 
 getline (cin, stream);          // get entire line
 
-cin.ignore(1000, '\n)
+cin.ignore(1000, '\n);
 cin.clear();
 // more: https://www.geeksforgeeks.org/cin-in-c/
 
