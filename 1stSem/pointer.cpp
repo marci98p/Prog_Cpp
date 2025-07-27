@@ -1,40 +1,48 @@
 // ##### Pointer ##################################################################################
-// The value of a pointer is the memory location of the referenced variable
-// pointers can be declared to point to objects of any data type
-
 int y = 42;			  // variable declaration
 int* y_ptr;			  // pointer declaration
-int *y_ptr;			  // pointer declaration - same
-int* y_ptr = &y;	// shorter
 y_ptr = &y; 		  // referencing - assign address of variable to ptr
-cout << *y_ptr		// 42 - dereferencing pointer (get value of variable)
-cout << y_ptr		  // 0xffffcbdc - (get adress of variable)
-cout << &y_ptr		// 0xffffcbd0 - (get adress of ptr)
-*y_ptr = 4;       // write value of ptr-adress
+int* y_ptr = &y;	// shorter
 
-// Pointer Arithmetic
-char v[5] = {a,b,c,d,e};
-char* v_ptr = &v[0];
+*y_ptr = 4;       // change ptr value
 
-cout << *v_ptr 		  // ouputs 'a'
-cout << *v_ptr +2	  // ouputs 'c' - Increasing the pointer by + 1 increases the memory address by 2 = sizeof(char)
+cout << *y_ptr;		// 42 - dereferencing pointer (get value of variable)
+cout << y_ptr;	  // 0xffffcbdc - (get adress of variable)
+cout << &y_ptr;		// 0xffffcbd0 - (get adress of ptr)
+
 
 // Pointer and Arrays
-// an array name (b) can be thought of as a constant pointer
-char b[5]; => b (without subscribt) is a (constant) pointer to the first elememt of the array b
+int* ptr_adr, ptr_val;
+int b[4] = {2, 3, 4, 5};
+ptr_adr = b;        // ptr to adress
+ptr_val = b[0];     // ptr to value
 
-int b[5] =  {5,6,7,8,9}
-int* b_ptr;
-b_ptr = b;      // assign adress of array to ptr (=> b (without subscribt) is a (constant) pointer to the first elememt of the array b)
-b_ptr = &b[0];  // same
-*b_ptr = 4;     // write value of ptr-adress
+// int array
+int* int_ptr;
+int array[4] = {4, 6, 7, 9};
+int_ptr = array;
+cout  << int_ptr << endl      // OUTPUT: adress
+      << *int_ptr << endl     // OUTPUT: 4
+      << int_ptr[0] << endl   // OUTPUT: 4
+      << *(int_ptr+1) << endl;// OUTPUT: 6 
 
-cout << &b[3];          // access adress (e.g. 0xffffcbdc) of array element index 3
-cout << b_ptr +3;       // same (e.g. 0xffffcbdc)
-cout << b[3];           // access array element
-cout << b_ptr[3];       // same - access value of array element
-cout << *(b_ptr +3);    // same - () must be used because of precedence
-cout << (*b_ptr)++      // increase value behind ptr
+// char array (C-String)  
+char* ch_ptr;
+char array[4] = {'a', 'b', 'c'}; // = "abc\0"
+ch_ptr = array;
+cout  << ch_ptr << endl        // OUTPUT: abc (because of C-string)
+      << *ch_ptr << endl       // OUTPUT: a
+      << ch_ptr[0] << endl     // OUTPUT: a
+      << *(ch_ptr+1) << endl;  // OUTPUT: b
+  
+
+// Pointer Arithmetic
+char v[5] = {'a','b','c','d'};
+char* v_ptr = &v[0];
+cout << *v_ptr 		  // OUTPUT: a
+cout << *(v_ptr+2)	// OUTPUT: c - Increasing the pointer by + 1 increases the memory address by 2 = sizeof(char)
+cout << ++*(v_ptr)  // OUTPUT: b
+
 
 // Examples (console output):
 console: Print b: c-array == ptr => without subscribt [], its the adress of the array
