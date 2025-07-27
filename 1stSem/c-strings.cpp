@@ -21,7 +21,7 @@ char* strcpy (char* dest, const char* source ); // Copies the C string pointed b
 char* strncat(char* dest, const char* source, size_t num );  // Appends the first num characters of source to destination 
 int strcmp (const char* str1, const char* str2);    // compares two strings 0:equal
 
-sizeof(c-str)     // lenght of string including null char '\n' (+1)
+sizeof(c-str)     // lenght of string including '\0' (+1)
 sizeof(char) = 1
 sizeof(int) = 4
 
