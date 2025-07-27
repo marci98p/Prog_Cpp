@@ -1,15 +1,21 @@
 // ##### cin ######################################################################################
 #include <iostream>
 #include <iomanip>
-using namespace std;
 
-cin >> input;
-cin >> name >> ag               // get multiple inputs separated by " "
-cin.get(input, size);           // read up to size-1 chars (-1 because last char null)
+cin >> stream1 >> stream2       // multiple inputs separated by " " or '\n'
+cin.get(char);                  // reads sinlge char
+
+char char_buffer[100];          // char_buffer[100] = '\n'
+cin.get(char_buffer, 100);      // stream including ' ', '\t'; terminate '\n'
+cin.get(char_buffer, 100, ';'); // reads until `;` or 99 symbols
+
+cin.get(input, size);           // read up to size-1 chars (-1 because last char '\0')
 cin >> setw(size) >> input      // max input lengh = size-1
 
-#include <string>
-getline (cin, inputLine);       // get entire line
+getline (cin, stream);          // get entire line
+
+cin.ignore(1000, '\n)
+cin.clear();
 // more: https://www.geeksforgeeks.org/cin-in-c/
 
 // check cin for right type 
