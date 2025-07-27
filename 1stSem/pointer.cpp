@@ -1,14 +1,14 @@
 // ##### Pointer ##################################################################################
-int y = 42;			  // variable declaration
-int* y_ptr;			  // pointer declaration
-y_ptr = &y; 		  // referencing - assign address of variable to ptr
-int* y_ptr = &y;	// shorter
+int y = 42;      // variable declaration
+int* y_ptr;      // pointer declaration
+y_ptr = &y;      // referencing - assign address of variable to ptr
+int* y_ptr = &y; // shorter
 
-*y_ptr = 4;       // change ptr value
+*y_ptr = 4;      // change ptr value
 
-cout << *y_ptr;		// 42 - dereferencing pointer (get value of variable)
-cout << y_ptr;	  // 0xffffcbdc - (get adress of variable)
-cout << &y_ptr;		// 0xffffcbd0 - (get adress of ptr)
+cout << *y_ptr;	// 42 - dereferencing pointer (get value of variable)
+cout << y_ptr;	// 0xffffcbdc - (get adress of variable)
+cout << &y_ptr;   // 0xffffcbd0 - (get adress of ptr)
 
 
 // ****************************** Pointer and Arrays ******************************
