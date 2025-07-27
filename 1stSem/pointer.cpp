@@ -37,11 +37,11 @@ cout  << ch_ptr << endl        // OUTPUT: abc (because of C-string)
   
 
 // Pointer Arithmetic
-char v[5] = {'a','b','c','d'};
-char* v_ptr = &v[0];
-cout << *v_ptr 		  // OUTPUT: a
-cout << *(v_ptr+2)	// OUTPUT: c - Increasing the pointer by + 1 increases the memory address by 2 = sizeof(char)
-cout << ++*(v_ptr)  // OUTPUT: b
+char a[5] = {'a','b','c','d'};
+char* a_ptr = &a[0];
+cout << *a_ptr ;	  // OUTPUT: a
+cout << *(a_ptr+2);	// OUTPUT: c - Increasing the pointer by + 1 increases the memory address by 2 = sizeof(char)
+cout << ++*(a_ptr);  // OUTPUT: b
 
 
 // Examples (console output):
