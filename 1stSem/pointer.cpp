@@ -11,7 +11,7 @@ cout << y_ptr;	  // 0xffffcbdc - (get adress of variable)
 cout << &y_ptr;		// 0xffffcbd0 - (get adress of ptr)
 
 
-// Pointer and Arrays
+// ****************************** Pointer and Arrays ******************************
 int* ptr_adr, ptr_val;
 int b[4] = {2, 3, 4, 5};
 ptr_adr = b;        // ptr to adress
@@ -30,42 +30,43 @@ cout  << int_ptr << endl      // OUTPUT: adress
 char* ch_ptr;
 char array[4] = {'a', 'b', 'c'}; // = "abc\0"
 ch_ptr = array;
-cout  << ch_ptr << endl        // OUTPUT: abc (because of C-string)
+cout  << ch_ptr << endl        // OUTPUT: abc (special case char array (= C-String))
       << *ch_ptr << endl       // OUTPUT: a
       << ch_ptr[0] << endl     // OUTPUT: a
       << *(ch_ptr+1) << endl;  // OUTPUT: b
   
+// special case C-Strings
+    int i[5] = {1, 4, 2, 8};
+    int* i_ptr = &i[0];    // ptr to first value
+    cout << i[3];          // access array element: 8
+    cout << *i_ptr;	   // OUTPUT: 1
+    cout << *(i_ptr+2);	   // OUTPUT 2
+    cout << i_ptr[3];      // OUTPUT: 8
+    cout << &i_ptr[3];     // OUTPUT 0x7ffd537cf90c
+    cout << i_ptr +3;      // OUTPUT 0x7ffd537cf90c
+    cout << *(i_ptr +3);   // OUTPUT 8
+    cout << ++(*i_ptr);    // OUTPUt 2
+    
+    char v[5] = {'a', 'b', 'c', 'd'};
+    char* v_ptr = &v[0];    // ptr to first value
+    cout << v[3];           // access array element: d
+    cout << *v_ptr;	    // OUTPUT: a
+    cout << *(v_ptr+2);	    // OUTPUT c
+    cout << v_ptr[3];       // OUTPUT: d
+    cout << &v_ptr[3];      // OUTPUT d (special case bcs of char (C-String))
+    cout << v_ptr +3;       // OUTPUT d (special case bcs of char (C-String))
+    cout << *(v_ptr +3);    // OUTPUT d
+    cout << ++(*v_ptr);     // OUTPUt b
 
-// Pointer Arithmetic
-char a[5] = {'a','b','c','d'};
+// ****************************** Pointer Arithmetic ******************************
+char a[5] = {'a','z','g','t'};
 char* a_ptr = &a[0];
-cout << *a_ptr ;	  // OUTPUT: a
-cout << *(a_ptr+2);	// OUTPUT: c - Increasing the pointer by + 1 increases the memory address by 2 = sizeof(char)
-cout << ++*(a_ptr);  // OUTPUT: b
+cout << *a_ptr ;	       // OUTPUT: a
+cout << *(a_ptr + 2);    // OUTPUT: g - Increasing the pointer by + 1 increases the memory address by 2 = sizeof(char)
+cout << *( ++a_ptr );    // OUTPUT: z
 
 
-// Examples (console output):
-console: Print b: c-array == ptr => without subscribt [], its the adress of the array
-console: b     = 0x7ffd871870c0
-console: b_ptr = 0x7ffd871870c0
-
-console: Array subsript notation:
-console: b[0] = 5
-console: b[1] = 6
-
-console: Pointer subsript notation:
-console: b_ptr[0] = 5
-console: b_ptr[1] = 6
-
-console: Array name offset notation:
-console: *(b + 0) = 5
-console: *(b + 1) = 6
-
-console: Pointer offset notation:
-console: *(b_ptr + 0) = 5
-console: *(b_ptr + 1) = 6
-
-// const with pointers
+// ****************************** const with pointers ******************************
 char* c_ptr1 = nullptr;             // nonconstant ptr to nonconstant data
                                     // - data can be changed
                                     // - pointer can be changed (reseated) to another data
