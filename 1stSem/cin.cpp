@@ -10,12 +10,12 @@ cin.get(char_buffer, 100);      // stream including ' ', '\t'; terminate '\n'
 cin.get(char_buffer, 100, ';'); // reads until `;` or 99 symbols
 
 cin.get(input, size);           // read up to size-1 chars (-1 because last char '\0')
-cin >> setw(size) >> input      // max input lengh = size-1
+cin >> setw(size) >> input      // read size-1 char; char[size] = '\n' 
 
 getline (cin, stream);          // get entire line
 
-cin.ignore(1000, '\n);
-// cin.clear();
+cin.clear();
+cin.ignore(1000, '\n');
 // more: https://www.geeksforgeeks.org/cin-in-c/
 
 // check cin for right type 
