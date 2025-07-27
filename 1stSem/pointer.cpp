@@ -85,9 +85,7 @@ const char* const c_ptr4 = text2;   // constant ptr and constant data
                                     // - ptr always points the same mamory location
                                     // - data cannot be changed using this ptr
 
-// pointer arrays
-// - each element cities points to char* (C-String)
-// - the C-array has a fixed size (3 ptrs with each 8 bytes each), but the C-strings could have arbitary length 
+// string literals
 const char* cities[3] = {"London", "Buenos Aires", "Tokio"};
 for (int i = 0; i < 3; i++){
     cout << cities[i] << ", ";      // OUTPUT: London, Buenos Aires, Tokio
